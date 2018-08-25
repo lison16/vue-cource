@@ -4,13 +4,33 @@
       <router-link :to="{ name: 'home' }">Home</router-link> |
       <router-link :to="{ name: 'about' }">About</router-link>
     </div>
-    <router-view/>
-    <router-view name="email"/>
-    <router-view name="tel"/>
+    <transition name="router">
+      <router-view/>
+      <router-view name="email"/>
+      <router-view name="tel"/>
+    </transition>
   </div>
 </template>
 
 <style lang="less">
+.router-enter{
+  opacity: 0;
+}
+.router-enter-active{
+  transition: opacity 1s ease;
+}
+.router-enter-to{
+  opacity: 1;
+}
+.router-leave{
+  opacity: 1;
+}
+.router-leave-active{
+  transition: opacity 1s ease;
+}
+.router-leave-to{
+  opacity: 0;
+}
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
