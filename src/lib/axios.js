@@ -14,6 +14,12 @@ class HttpRequest {
     }
     return config
   }
+  distroy (url) {
+    delete this.queue[url]
+    if (!Object.keys(this.queue).length) {
+      // Spin.hide()
+    }
+  }
   interceptors (instance, url) {
     instance.interceptors.request.use(config => {
       // 添加全局的loading...
@@ -26,11 +32,11 @@ class HttpRequest {
       return Promise.reject(error)
     })
     instance.interceptors.response.use(res => {
-      delete this.queue[url]
+      this.distroy(url)
       const { data, status } = res
       return { data, status }
     }, error => {
-      delete this.queue[url]
+      this.distroy(url)
       return Promise.reject(error)
     })
   }
