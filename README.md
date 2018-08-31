@@ -1,2 +1,2 @@
-# vue-cource
+# vue-courses
 vue develope cource open source code
