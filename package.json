@@ -10,6 +10,8 @@
   "dependencies": {
     "axios": "^0.18.0",
     "countup": "^1.8.2",
+    "js-cookie": "^2.2.0",
+    "md5": "^2.2.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
     "vuex": "^3.0.1"
