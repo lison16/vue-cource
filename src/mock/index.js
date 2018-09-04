@@ -1,8 +1,10 @@
 import Mock from 'mockjs'
-import { getUserInfo } from './response/user'
+import { getUserInfo, login, authorization } from './response/user'
 const Random = Mock.Random
 
 Mock.mock(/\/getUserInfo/, 'post', getUserInfo)
+Mock.mock(/\/login/, 'post', login)
+Mock.mock(/\/authorization/, 'get', authorization)
 
 Mock.setup({
   timeout: 0

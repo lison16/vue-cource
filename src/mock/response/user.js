@@ -53,3 +53,23 @@ export const getUserInfo = (options) => {
   }
   return Mock.mock(template)
 }
+
+export const login = () => {
+  return {
+    code: 200,
+    data: {
+      token: 'xxx'
+    },
+    mes: ''
+  }
+}
+
+export const authorization = () => {
+  return {
+    code: 200,
+    data: {
+      token: 'xxx'
+    },
+    mes: ''
+  }
+}

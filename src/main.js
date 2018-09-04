@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 import Bus from './lib/bus'
 import CountTo from '_c/count-to'
-// if (process.env.NODE_ENV !== 'production') require('./mock')
+if (process.env.NODE_ENV !== 'production') require('./mock')
 
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
