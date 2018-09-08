@@ -49,6 +49,17 @@ export default [
   },
   {
     path: '/',
+    name: 'home',
+    component: Layout,
+    children: [
+      {
+        path: 'folder_tree',
+        component: () => import('@/views/folder-tree/folder-tree.vue')
+      }
+    ]
+  },
+  {
+    path: '/',
     name: 'table',
     component: Layout,
     children: [
