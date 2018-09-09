@@ -39,7 +39,7 @@ class HttpRequest {
       return data
     }, error => {
       this.distroy(url)
-      return Promise.reject(error)
+      return Promise.reject(error.response.data)
     })
   }
   request (options) {
