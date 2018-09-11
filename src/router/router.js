@@ -1,6 +1,6 @@
 import Home from '@/views/Home.vue'
 import Layout from '@/views/layout.vue'
-export default [
+export const routerMap = [
   {
     path: '/',
     name: 'home',
@@ -8,14 +8,10 @@ export default [
     children: [
       {
         path: 'home',
+        name: 'home_index',
         component: Home
       }
     ]
-  },
-  {
-    path: '/login',
-    name: 'login',
-    component: () => import('@/views/login.vue')
   },
   {
     path: '/about',
@@ -115,6 +111,14 @@ export default [
   {
     path: '/store',
     component: () => import('@/views/store.vue')
+  }
+]
+
+export const routes = [
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('@/views/login.vue')
   },
   {
     path: '*',
