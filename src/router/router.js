@@ -54,6 +54,11 @@ export const routerMap = [
     component: () => import('@/views/form.vue')
   },
   {
+    path: '/optimize',
+    name: 'optimize',
+    component: () => import('@/views/optimize.vue')
+  },
+  {
     path: '/',
     name: 'home',
     component: Layout,

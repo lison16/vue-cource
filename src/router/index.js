@@ -47,6 +47,9 @@ router.beforeEach((to, from, next) => {
         }).catch(() => {
           next({ name: 'login' })
         })
+      }).catch(() => {
+        setToken('')
+        next({ name: 'login' })
       })
     } else {
       next()

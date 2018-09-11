@@ -16,6 +16,7 @@
     "md5": "^2.2.1",
     "vue": "^2.5.17",
     "vue-router": "^3.0.1",
+    "vue-virtual-scroll-list": "^1.2.8",
     "vuex": "^3.0.1"
   },
   "devDependencies": {

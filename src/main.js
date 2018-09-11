@@ -9,7 +9,7 @@ import '@/assets/font/iconfont.js'
 import '@/assets/font/iconfont.css'
 import IconFont from '_c/icon-font'
 import IconSvg from '_c/icon-svg'
-if (process.env.NODE_ENV !== 'production') require('./mock')
+// if (process.env.NODE_ENV !== 'production') require('./mock')
 
 Vue.config.productionTip = false
 Vue.prototype.$bus = Bus
