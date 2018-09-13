@@ -4,6 +4,7 @@
     <Button @click="handleSubmit" type="primary">提交</Button>
     <Button @click="handleReset">重置</Button>
     <form-single
+      ref="formSingle"
       v-for="(item, index) in formList"
       :key="`form_${index}`"
       :config="item"
@@ -31,43 +32,51 @@ export default {
       formList: formData,
       valueData: {},
       ruleData: {},
-      errorStore: {}
+      errorStore: {},
+      initValueData: {}
     }
   },
   methods: {
     handleSubmit () {
-      this.$refs.form.validate(valid => {
-        if (valid) {
-          sentFormData({
-            url: this.url,
-            data: this.valueList
-          }).then(res => {
-            this.$emit('on-submit-success', res)
-          }).catch(err => {
-            this.$emit('on-submit-error', err)
-            for (let key in err) {
-              this.errorStore[key] = err[key]
-            }
-          })
-        }
+      let isValid = true
+      this.$refs.formSingle.forEach(item => {
+        item.validate(valid => {
+          if (!valid) isValid = false
+        })
       })
+      if (isValid) {
+        sentFormData({
+          url: this.url,
+          data: this.valueData
+        }).then(res => {
+          this.$emit('on-submit-success', res)
+        }).catch(err => {
+          this.$emit('on-submit-error', err)
+          for (let key in err) {
+            this.errorStore[key] = err[key]
+          }
+        })
+      }
     },
     handleReset () {
-      this.valueList = clonedeep(this.initValueList)
+      this.valueData = clonedeep(this.initValueData)
     }
   },
   mounted () {
     let valueData = {}
     let ruleData = {}
     let errorStore = {}
+    let initValueData = {}
     formData.forEach(item => {
       valueData[item.name] = item.value
       ruleData[item.name] = item.rule
       errorStore[item.name] = ''
+      initValueData[item.name] = item.value
     })
     this.valueData = valueData
     this.ruleData = ruleData
     this.errorStore = errorStore
+    this.initValueData = initValueData
   }
 }
 </script>

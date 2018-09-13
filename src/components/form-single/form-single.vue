@@ -43,6 +43,11 @@ export default {
   methods: {
     handleFocus (name) {
       this.errorStore[name] = ''
+    },
+    validate (callback) {
+      this.$refs.form.validate(valid => {
+        callback(valid)
+      })
     }
   }
 }
