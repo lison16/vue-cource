@@ -81,6 +81,8 @@ export const authorization = () => {
           form: false,
           folder_tree: true,
           table_page: true,
+          params: true,
+          component: true,
           render_page: true,
           split_pane: true,
           parent: true,
