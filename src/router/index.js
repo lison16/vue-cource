@@ -3,12 +3,10 @@ import Router from 'vue-router'
 import { routes } from './router'
 import store from '@/store'
 import { setTitle, setToken, getToken } from '@/lib/util'
-import clonedeep from 'clonedeep'
 
 Vue.use(Router)
 
 const router = new Router({
-  mode: 'history',
   routes
 })
 
@@ -43,7 +41,7 @@ router.beforeEach((to, from, next) => {
     if (!store.state.router.hasGetRules) {
       store.dispatch('authorization').then(rules => {
         store.dispatch('concatRoutes', rules).then(routers => {
-          router.addRoutes(clonedeep(routers))
+          router.addRoutes(routers)
           next({ ...to, replace: true })
         }).catch(() => {
           next({ name: 'login' })
