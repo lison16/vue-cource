@@ -191,7 +191,6 @@ export const routes = [
   },
   {
     path: '*',
-    name: '404',
     component: () => import('@/views/error_404.vue')
   }
 ]
