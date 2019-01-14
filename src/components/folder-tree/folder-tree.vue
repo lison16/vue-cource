@@ -81,7 +81,7 @@ export default {
       list = list.filter(item => item.id !== data.id)
       this.$emit(`update:${updateListName}`, list)
       this.$nextTick(() => {
-        expandSpecifiedFolder(this.folderTree, folderId)
+        expandSpecifiedFolder(this, this.folderTree, folderId)
       })
     },
     handleDropdownClick (data, name) {

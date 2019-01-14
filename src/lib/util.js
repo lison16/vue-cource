@@ -53,20 +53,23 @@ export const transferFolderToTree = folderList => {
   return handle(0)
 }
 
-export const expandSpecifiedFolder = (folderTree, id) => {
+export const expandSpecifiedFolder = (vm, folderTree, id) => {
   return folderTree.map(item => {
     if (item.type === 'folder') {
       if (item.id === id) {
-        item.expand = true
+        // item.expand = true
+        vm.$set(item, 'expand', true)
       } else {
         if (item.children && item.children.length) {
-          item.children = expandSpecifiedFolder(item.children, id)
+          item.children = expandSpecifiedFolder(vm, item.children, id)
           if (item.children.some(child => {
             return child.expand === true
           })) {
-            item.expand = true
+            // item.expand = true
+            vm.$set(item, 'expand', true)
           } else {
-            item.expand = false
+            // item.expand = false
+            vm.$set(item, 'expand', false)
           }
         }
       }
