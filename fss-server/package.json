@@ -24,7 +24,7 @@
     "mysql2": "^1.6.1",
     "node-snowflake": "0.0.1",
     "pm2": "^3.0.3",
-    "redis": "^2.8.0",
+    "redis": "^3.1.1",
     "sequelize": "^4.38.0"
   },
   "devDependencies": {
